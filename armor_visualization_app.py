@@ -49,7 +49,7 @@ def custom_draw(results, image):
             for i in range(4):  # 0-3号点
                 x, y = kps[i]
                 # 坐标有效性验证
-                if 0 <= x < w and 0 <= y < h:
+                if 0 < x < w and 0 < y < h:
                     color = (0, 255, 0)  # 统一使用绿色
                     cv2.circle(img, (int(x), int(y)), 5, color, -1)
                     # 标注点序号（白色文字）
@@ -131,12 +131,12 @@ def app():
                 model_id = gr.Dropdown(
                     label="Model",
                     choices=[
-                        "runs/pose/train38/weights/best.pt",
-                        "runs/pose/train39/weights/best.pt",
-                        "runs/pose/train39/weights/last.pt",
-                        "runs/pose/train38/weights/last.pt",
+                        "/root/Projects/rm/yolov12/runs/pose/train42/weights/last.pt",
+                        "/root/Projects/rm/yolov12/best.pt",
+                        "/root/Projects/rm/yolov12/runs/pose/train42/weights/best.pt",
+                        "/root/Projects/rm/yolov12/last.pt",
                     ],
-                    value="runs/pose/train39/weights/last.pt",
+                    value="/root/Projects/rm/yolov12/runs/pose/train42/weights/best.pt",
                 )
                 image_size = gr.Slider(
                     label="Image Size",
